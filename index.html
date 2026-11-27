@@ -91,36 +91,23 @@
     <section class="contact" id="contact">
       <div class="wrap contact-grid">
         <div><div class="kicker">Premier échange sans engagement</div><h2>Parlons de votre activité.</h2><p>Décrivez votre besoin. Nous revenons vers vous pour vérifier si l'offre correspond à votre situation et vous proposer la prochaine étape.</p><p><strong>Pas de vente forcée. Pas de promesse irréaliste.</strong></p></div>
-        <form class="form" id="lead-form">
+        <form class="form" id="lead-form" action="https://formsubmit.co/jokaaie@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nouvelle demande — Atelier Visible">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="true">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div><label for="name">Votre nom</label><input id="name" name="name" autocomplete="name" required placeholder="Nom et prénom"></div>
           <div><label for="company">Votre entreprise</label><input id="company" name="company" autocomplete="organization" placeholder="Nom de l'entreprise"></div>
           <div><label for="email">Votre e-mail</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="vous@entreprise.fr"></div>
           <div><label for="need">Votre besoin</label><select id="need" name="need"><option>Créer un site vitrine</option><option>Améliorer mon site actuel</option><option>Optimiser ma présence Google</option><option>Autre besoin</option></select></div>
           <div><label for="message">Quelques mots sur votre activité</label><textarea id="message" name="message" placeholder="Votre métier, votre ville, votre objectif…"></textarea></div>
-          <button class="btn" type="submit">Préparer ma demande ↗</button>
-          <p class="fine">Le bouton ouvre votre application e-mail. Aucun formulaire n'est transmis automatiquement depuis cette version de démonstration.</p>
+          <button class="btn" type="submit">Envoyer ma demande ↗</button>
+          <p class="fine">Votre demande sera transmise à Atelier Visible par un service tiers de formulaire. Évitez d’y inscrire des données sensibles. La politique de confidentialité doit être publiée avant toute prospection commerciale.</p>
         </form>
       </div>
     </section>
   </main>
   <footer><div class="wrap foot"><span><strong>atelier visible</strong> — Les entreprises de nettoyage, mieux présentées.</span><span>Mentions légales et politique de confidentialité à compléter avant commercialisation.</span></div></footer>
-  <script>
-    const CONTACT_EMAIL = "jokaaie@gmail.com";
-    document.getElementById("lead-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-      if (CONTACT_EMAIL.startsWith("A_REMPLACER")) {
-        alert("Version de prévisualisation : l'adresse e-mail de réception doit être configurée avant la mise en ligne.");
-        return;
-      }
-      const data = new FormData(this);
-      const subject = encodeURIComponent("Demande de diagnostic — " + (data.get("company") || data.get("name")));
-      const body = encodeURIComponent(
-        "Nom : " + data.get("name") + "\nEntreprise : " + data.get("company") +
-        "\nE-mail : " + data.get("email") + "\nBesoin : " + data.get("need") +
-        "\nMessage : " + data.get("message")
-      );
-      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
-    });
-  </script>
+
 </body>
 </html>
